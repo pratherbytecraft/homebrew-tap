@@ -1,8 +1,8 @@
 class Startbar < Formula
   desc "Taskbar for macOS with a Start button, window buttons, pinned apps and a clock"
   homepage "https://github.com/pratherbytecraft/startbar"
-  url "https://registry.npmjs.org/startbar/-/startbar-0.2.9.tgz"
-  sha256 "a9b1adccd674ce4e569cb260678416e16f7fb25860843221a3b930db381310db"
+  url "https://registry.npmjs.org/startbar/-/startbar-0.2.10.tgz"
+  sha256 "081cb313089f36c20755cc2670435c36d1f83d55c8fc50aec5af6c257a3af83f"
   license :cannot_represent
 
   depends_on :macos
