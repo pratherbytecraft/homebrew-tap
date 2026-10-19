@@ -1,8 +1,8 @@
 class Filedrawer < Formula
   desc "File manager for macOS with tabs, two panes, a typed address bar and a task pane"
   homepage "https://github.com/pratherbytecraft/filedrawer"
-  url "https://registry.npmjs.org/filedrawer/-/filedrawer-0.1.18.tgz"
-  sha256 "8a60004cfb144595adfc0cf0ec5d20fa23bb756a3292b5d438d0a9f44a8aa43a"
+  url "https://registry.npmjs.org/filedrawer/-/filedrawer-0.2.0.tgz"
+  sha256 "41284931b27c0161d25df15bfaae6ee9500110b53852feb65578a97f3c48f6df"
   license :cannot_represent
 
   depends_on :macos
