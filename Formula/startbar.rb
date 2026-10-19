@@ -1,16 +1,19 @@
 class Startbar < Formula
   desc "Taskbar for macOS with a Start button, window buttons, pinned apps and a clock"
   homepage "https://github.com/pratherbytecraft/startbar"
-  url "https://registry.npmjs.org/startbar/-/startbar-0.2.3.tgz"
-  sha256 "70338bd4fc6989e28e81a2b0a437458db23e5466cbf75a6f2a8be0fec127200a"
+  url "https://registry.npmjs.org/startbar/-/startbar-0.2.4.tgz"
+  sha256 "71a027bc96e28421e33094842f2b68d6a81cd881659719d4838383a0e82afe5d"
   license :cannot_represent
 
   depends_on :macos
   depends_on "node"
 
   def install
-    # Startbar's install builds its Swift helper, and Electron's downloads
-    # the Electron app, so the package scripts have to run.
+    # Startbar's install builds its Swift helper, so the package scripts have
+    # to run. Electron's app is left out: Homebrew would try to rewrite its
+    # libraries and fail, and Startbar doesn't need it here, since the first
+    # run downloads it and builds Startbar.app in ~/Applications from it.
+    ENV["ELECTRON_SKIP_BINARY_DOWNLOAD"] = "1"
     system "npm", "install", *std_npm_args(ignore_scripts: false)
     bin.install_symlink libexec.glob("bin/*")
   end
@@ -19,8 +22,9 @@ class Startbar < Formula
     <<~EOS
       Start it with:
         startbar
-      The first run sets up Startbar.app in ~/Applications, so it can be
-      opened again from Spotlight, and asks for the Accessibility permission.
+      The first run downloads Electron and sets up Startbar.app in
+      ~/Applications, so it can be opened again from Spotlight, and asks for
+      the Accessibility permission.
     EOS
   end
 
